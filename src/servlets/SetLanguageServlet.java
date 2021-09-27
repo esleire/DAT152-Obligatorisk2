@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.jstl.core.Config;
 
+import service.ProductService;
+
 @WebServlet("/SetLanguage")
 public class SetLanguageServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -27,6 +29,7 @@ public class SetLanguageServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String locale = request.getParameter("locale");
+        ProductService.setLocale(locale);
         if (locale != null) {
             Config.set(request.getSession(), Config.FMT_LOCALE, locale);
 

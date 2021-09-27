@@ -3,11 +3,11 @@ package models;
 public class Description {
 	
 	private int pno; 
-	private long langCode; 
+	private String langCode; 
 	private String text; 
 	
 	
-	public Description(int pno, long langCode, String text) {
+	public Description(int pno, String langCode, String text) {
 		this.pno = pno; 
 		this.langCode = langCode; 
 		this.text = text; 
@@ -24,12 +24,12 @@ public class Description {
 	}
 
 
-	public long getLangCode() {
+	public String getLangCode() {
 		return langCode;
 	}
 
 
-	public void setLangCode(long langCode) {
+	public void setLangCode(String langCode) {
 		this.langCode = langCode;
 	}
 

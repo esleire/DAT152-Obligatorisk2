@@ -21,10 +21,12 @@ public class Cart extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		List<Product> cart = ProductService.getCart(); 
+		List<models.Cart> cart = ProductService.getCart(); 	
 		
+		double totalPrice = ProductService.getTotaltPrice(cart); 
 
 		request.setAttribute("cart", cart);
+		request.setAttribute("totalPrice", totalPrice);
 
 		request.getRequestDispatcher("cart.jsp").forward(request, response);
 

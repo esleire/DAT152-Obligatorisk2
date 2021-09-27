@@ -1,18 +1,22 @@
 package models;
 
+import java.util.List;
+
 public class Product {
 	
 	private int pno; 
 	private String pName; 
 	private double priceInEuro; 
 	private String imageFile; 
+	private List<Description> description; 
 	
 	
-	public Product(int pno, String pName, double priceInEuro, String imageFile) {
+	public Product(int pno, String pName, double priceInEuro, String imageFile, List<Description> description) {
 		this.pno = pno; 
 		this.pName = pName; 
 		this.priceInEuro = priceInEuro; 
 		this.imageFile = imageFile; 
+		this.description = description; 
 	}
 
 
@@ -55,6 +59,12 @@ public class Product {
 		this.imageFile = imageFile;
 	}
 	
+	public List<Description> getDescription() {
+		return description; 
+	}
+	public void setDescription(List<Description> description) {
+		this.description = description; 
+	}
 	
 
 }

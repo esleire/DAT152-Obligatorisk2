@@ -23,10 +23,12 @@ public class Products extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		String locale = ProductService.getLocale(); 
 		List<Product> productList = ProductService.getProducts(); 
 		
 
 		request.setAttribute("productList", productList);
+		request.setAttribute("locale", locale);
 
 		request.getRequestDispatcher("Products.jsp").forward(request, response);
 
@@ -39,6 +41,7 @@ public class Products extends HttpServlet {
 		int pno = Integer.parseInt(txtPno); 
 		
 		ProductService.addToCart(pno);
+		response.sendRedirect(request.getContextPath() + "/Products");
 
 	}
 

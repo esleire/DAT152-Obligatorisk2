@@ -21,9 +21,13 @@
 		<div>
 		<p><fmt:message key="title" />: ${ product.pName }</p>
 		<p><fmt:message key="price" />: ${ product.priceInEuro } </p>
-		<img src=${ product.imageFile } />
+		<p> Count: ${ product.count } </p>
 		</div>
 		</c:forEach>
+		
+		<p>Total price: ${ totalPrice } </p>
+		
+		<a href="Products"><fmt:message key="products" /> </a>
 
 	</fmt:bundle>
 

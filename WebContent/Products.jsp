@@ -24,6 +24,13 @@
 		<form method ="post">
 		<p><fmt:message key="title" />: ${ product.pName }</p>
 		<p><fmt:message key="price" />: ${ product.priceInEuro } </p>
+		
+		<c:forEach var="description" items="${ product.description }" varStatus="loop">
+		<c:if test ="${ description.langCode == locale }">
+		<p>${ description.text } </p>
+	 	</c:if>
+	 	</c:forEach>
+	 	
 		<img src=${ product.imageFile } />
 		<button type="submit" name="pno" value=${ product.pno }>
 		<fmt:message key="addToCart" />
