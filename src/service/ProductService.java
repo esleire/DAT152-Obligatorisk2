@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductService {
+	
+	public static List<Product> cart = new ArrayList<Product>(); 
 
 	public static List<Product> getProducts() {
 
@@ -26,6 +28,22 @@ public class ProductService {
 		productList.add(p3);
 		return productList;
 
+	}
+	
+	public static void addToCart(int pno) {
+		List<Product> products = getProducts(); 
+		
+		for(Product product : products) {
+			if (product.getPno() == pno) {
+				cart.add(product); 
+				return; 
+			}
+		}
+		
+	}
+	
+	public static List<Product> getCart() {
+		return cart; 
 	}
 
 }

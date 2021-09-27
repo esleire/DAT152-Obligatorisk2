@@ -21,15 +21,20 @@
 		
 		<c:forEach var="product" items="${productList}" varStatus="loop">
 		<div>
+		<form method ="post">
 		<p><fmt:message key="title" />: ${ product.pName }</p>
 		<p><fmt:message key="price" />: ${ product.priceInEuro } </p>
 		<img src=${ product.imageFile } />
-		<input type="button" name="pno" value="<fmt:message key="addToCart" />" id=${ produt.pno } />
+		<button type="submit" name="pno" value=${ product.pno }>
+		<fmt:message key="addToCart" />
+		</button>
+		</form>
 		</div>
 		</c:forEach>
 
 		<p>
 			<a href="index.jsp"><fmt:message key="home" /> </a>
+			<a href="Cart"><fmt:message key="cart" /> </a>
 		</p>
 	</fmt:bundle>
 </body>

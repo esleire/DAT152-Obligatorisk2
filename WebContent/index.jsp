@@ -19,7 +19,7 @@
 		<p>
 			<a href="Products"><fmt:message key="products" /> </a> 
 	
-			<a href="/Cart"><fmt:message key="cart" /> </a>
+			<a href="Cart"><fmt:message key="cart" /> </a>
 		</p>
 
 	</fmt:bundle>

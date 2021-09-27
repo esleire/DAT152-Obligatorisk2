@@ -34,6 +34,11 @@ public class Products extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		String txtPno = request.getParameter("pno"); 
+		int pno = Integer.parseInt(txtPno); 
+		
+		ProductService.addToCart(pno);
 
 	}
 
