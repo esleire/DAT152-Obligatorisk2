@@ -4,6 +4,9 @@ import models.Cart;
 import models.Description;
 import models.Product;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +16,9 @@ public class ProductService {
 
 	public static String locale;
 	
-	public static int totalPrice; 
+	public static double totalPrice; 
+	
+	private static DecimalFormat df2 = new DecimalFormat("#.##");
 
 	public static List<Product> getProducts() {
 
@@ -23,8 +28,8 @@ public class ProductService {
 
 		List<Description> descriptionListOne = new ArrayList<Description>();
 
-		Description d1 = new Description(1, "no_NO", "Kjempe bra headset med god lyd! :)");
-		Description d11 = new Description(1, "en_US", "Very good headset with great sound! :)");
+		Description d1 = new Description(1, "no_NO", "Kjempe bra headset med god lyd!");
+		Description d11 = new Description(1, "en_US", "Very good headset with great sound!");
 
 		descriptionListOne.add(d1);
 		descriptionListOne.add(d11);
@@ -75,6 +80,8 @@ public class ProductService {
 				Cart c = new Cart(product.getPno(), product.getpName(), product.getPriceInEuro(),
 						product.getDescription());
 				cart.add(c);
+				totalPrice += c.getPriceInEuro(); 
+				c.setTotalPrice(c.getPriceInEuro());
 				return;
 			}
 		}
@@ -86,6 +93,8 @@ public class ProductService {
 		for (Cart c : cartItems) {
 			if (c.getPno() == pno) {
 				c.updateCount();
+				totalPrice += c.getPriceInEuro(); 
+				c.setTotalPrice(c.getPriceInEuro());
 				return true;
 			}
 		}
@@ -96,22 +105,16 @@ public class ProductService {
 		return cart;
 	}
 
-	public static double getTotaltPrice(List<Cart> cart) {
-
-		for (Cart c : cart) {
-			totalPrice += c.getPriceInEuro() * c.getCount();
-		}
-
-		return totalPrice;
-
-	}
-
 	public static void setLocale(String locale) {
 		ProductService.locale = locale;
 	}
 
 	public static String getLocale() {
 		return ProductService.locale;
+	}
+	
+	public static String getTotalPrice() {
+		return df2.format(totalPrice); 
 	}
 
 }

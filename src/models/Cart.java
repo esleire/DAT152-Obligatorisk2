@@ -10,7 +10,7 @@ public class Cart {
 	private double priceInEuro; 
 	private double count; 
 	private List<Description> shortDescription;
-	private double totaltPrice; 
+	private double totalPrice; 
 	
 	
 	public Cart(int pno, String pName, double priceInEuro, List<Description> shortDescription) {
@@ -53,5 +53,12 @@ public class Cart {
 		this.count += 1.0; 
 	}
 	
+	public void setTotalPrice(double price) {
+		this.totalPrice += price; 
+	}
+	
+	public double getTotalPrice() {
+		return this.totalPrice; 
+	}
 	
 }

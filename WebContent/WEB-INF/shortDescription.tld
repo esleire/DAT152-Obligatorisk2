@@ -1,0 +1,13 @@
+<taglib>
+ <tlib-version>1.0</tlib-version>
+ <jsp-version>2.0</jsp-version>
+ <short-name>My Custom Tag</short-name>
+ <tag>
+ <name>short</name>
+ <tag-class>tags.MaxCharTag</tag-class> 
+ <attribute>  
+    <name>maxChar</name>  
+    <required>true</required>  
+    </attribute>  
+ </tag>
+</taglib>

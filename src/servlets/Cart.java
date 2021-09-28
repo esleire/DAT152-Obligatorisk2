@@ -23,10 +23,13 @@ public class Cart extends HttpServlet {
 		
 		List<models.Cart> cart = ProductService.getCart(); 	
 		
-		double totalPrice = ProductService.getTotaltPrice(cart); 
+		String totalPrice = ProductService.getTotalPrice(); 
+		
+		String locale = ProductService.getLocale(); 
 
 		request.setAttribute("cart", cart);
 		request.setAttribute("totalPrice", totalPrice);
+		request.setAttribute("locale", locale);
 
 		request.getRequestDispatcher("cart.jsp").forward(request, response);
 
